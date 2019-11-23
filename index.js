@@ -47,17 +47,21 @@ async function onMessage (msg) {
 		  console.log('添加一个白名单');
           clearMsgJob(to.id);
 	  }
+	  if ('广告'===content) {
+		console.log('对面是广告,开始反击')
+		sendMsg(to)
+	  }
 	  return
   }
-  if (msg.self() || room) {
+  if ( room) {
       console.log('message is inside a room.')
       return
-    }
+  }
   let type = msg.type()
 	 console.log('type==='+type);
    if (type=== bot.Message.Type.Text) {
 	  console.log('message is a txt',content)
-	  
+	  console.log(content)
 	  //console.log(poemarr.length);
 	  if ('我错了'===content) {
 		  clearMsgJob(sender.id)
@@ -65,11 +69,12 @@ async function onMessage (msg) {
          console.log('收到了你发的取消信息');
          
 	  }
-	  return
+	  
+	  
    }else if(type=== bot.Message.Type.Url ||type=== bot.Message.Type.Unknown  ||type=== bot.Message.Type.Attachment
 		  || type=== bot.Message.Type.MiniProgram){
 	  console.log('收到一个广告,开始反击')
-	  sendMsg(sender)
+	  //sendMsg(sender)
    }
 }
 function clearMsgJob(id){

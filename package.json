@@ -26,7 +26,7 @@
     "node-schedule": "^1.3.2",
     "qrcode-terminal": "^0.12.0",
     "wechaty": "^0.22.1",
-    "wechaty-puppet-puppeteer": "^0.14.1"
+    "wechaty-puppet-puppeteer": "^0.14.6"
   },
   "devDependencies": {
     "check-node-version": "^3.2.0"
