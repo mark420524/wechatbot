@@ -61,13 +61,17 @@ async function onMessage (msg) {
 	 console.log('type==='+type);
    if (type=== bot.Message.Type.Text) {
 	  console.log('message is a txt',content)
-	  console.log(content)
+	  //console.log(content)
 	  //console.log(poemarr.length);
 	  if ('我错了'===content) {
 		  clearMsgJob(sender.id)
 		  await sender.say('收到你的知错信息了,知道错了就行,停止了不发送了');
          console.log('收到了你发的取消信息');
          
+	  }
+
+	  if (content.indexOf('，对方验证通过后，才能聊天')>-1){
+		  clearMsgJob(sender.id);
 	  }
 	  
 	  
